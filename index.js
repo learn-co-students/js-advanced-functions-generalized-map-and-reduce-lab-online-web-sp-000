@@ -13,9 +13,14 @@ function reduce(array, fn, starting = 0) {
   // need value = 0/starting if all array are numbers 
   
   let value;
-  let arrayCondition = array.every(function(element) {return typeof element === 'number';})
   
-  if (arrayCondition === true) {
+  // will set arrayAllNum to true/false depending on what the array is like.
+  
+  let arrayAllNum = array.every(element => {
+    return typeof element === 'number';
+  })
+  
+  if (arrayAllNum === true) {
     value = starting;
   } else {
     value = true;
