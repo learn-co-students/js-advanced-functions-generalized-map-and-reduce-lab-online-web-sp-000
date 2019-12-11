@@ -9,8 +9,8 @@ function map(array, fn) {
 
 function reduce(array, fn, starting = 0) {
 
-  // need value = true if no starting given and array NaN
-  // need value = 0 or starting if all array are numbers
+  // need value = true if no starting given and if one array element is NaN
+  // need value = 0/starting if all array are numbers 
   
   let value;
   let arrayCondition = array.every(function(element) {return typeof element === 'number';})
