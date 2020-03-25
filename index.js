@@ -7,15 +7,17 @@ function map(array, fn) {
 }
 
 function reduce(array, fn, starting) {
-    // if(!!starting) {
-    //     let sum = starting
-    //     let i = 0
-    // } else { 
-    //     let sum = array[0]
-    //     let i = 1
-    // }
-    let r = (!!starting) ? starting : array[0]
-    let i = (!!starting) ? 0 : 1
+    let sum
+    let i
+    if(!!starting) {
+         sum = starting
+         i = 0
+    } else { 
+         sum = array[0]
+         i = 1
+    }
+    // let r = (!!starting) ? starting : array[0]
+    // let i = (!!starting) ? 0 : 1
     
     for (; i < array.length; i++) {
        r = fn(r, array[i])
