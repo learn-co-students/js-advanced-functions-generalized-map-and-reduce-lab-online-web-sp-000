@@ -8,7 +8,7 @@ function map(sourceArray, mappingFunction){
     return returnArray
 }
 
-function reduce(sourceArray, reducingFunction, memo = undefined) {    
+function reduce(sourceArray, reducingFunction, memo) {    
     let returnValue
     if (memo) {
         returnValue = reducingFunction(sourceArray[0], memo)
