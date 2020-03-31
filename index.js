@@ -12,12 +12,11 @@ function reduce(sourceArray, reducingFunction, memo = undefined) {
     let returnValue
     if (memo) {
         returnValue = reducingFunction(sourceArray[0], memo)
-        returnValue = reducingFunction(sourceArray[1], returnValue)
     }
     else {
-        returnValue = reducingFunction(sourceArray[1], sourceArray[0])
+        returnValue = sourceArray[0]
     }
-    for (let i=2; i<sourceArray.length; i++){
+    for (let i=1; i<sourceArray.length; i++){
         returnValue = reducingFunction(sourceArray[i], returnValue)
     }
     return returnValue
