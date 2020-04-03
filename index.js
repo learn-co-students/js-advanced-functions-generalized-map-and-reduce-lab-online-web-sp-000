@@ -1,24 +1,22 @@
-function map(array, func) {
-    let mappedArray = [];
-    array.forEach(index => {
-        mappedArray.push(func(index))
-    })
-    return mappedArray;
+
+function map(src, cb) {
+    let r = []
+
+    for (let i = 0; i < src.length; i++) {
+        let theElement = src[i]
+        r.push(cb(theElement))
+    }
+
+    return r;
 }
 
-function reduce(array, func, startingPoint) {
-    let accumulator;
-    let index;
+function reduce(src, cb, starting){
+    let r = (!!starting) ? starting : src[0]
+    let i = (!!starting) ? 0 : 1
 
-    if (!!startingPoint) {
-        accumulator = startingPoint;
-        index = 0;
-    } else {
-        accumulator = func(array[0], array[1]);
-        index = 2;
+    for (; i < src.length; i++) {
+        r = cb(src[i], r)
     }
-    for (index; index < array.length; index++) {
-        accumulator = func(accumulator, array[index])
-    }
-    return accumulator;
+
+    return r;
 }
