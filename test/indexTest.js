@@ -51,7 +51,7 @@ describe('my own reduce-like methods', function() {
   describe("reduce returns false when any value is false", function() {
     it("reduces correctly", function(){
       sourceArray = [1, 2, true, "razmatazz", false]
-      expect(reduce(sourceArray, function(a, memo){ return !!a && memo})).to.be.false
+      expect(reduce(sourceArray, function(a, memo){ return !!a && !!memo})).to.be.false
     })
   })
 
