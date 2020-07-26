@@ -9,13 +9,14 @@ function map(src, cb) {
   return r;
 }
 
-function reduce(src, cb, starting){
-  let r = (!!starting) ? starting : src[0]
-  let i = (!!starting) ? 0 : 1
-
-  for (; i < src.length; i++) {
-    r = cb(src[i], r)
-  }
-
-  return r;
+function reduce(arr, callback, start) {
+  let accumulator = start ? start : arr[0];
+  // Arr value is already set in accumulator is start not provided, thus loop will start at arr[1] 
+  let i = start ? 0 : 1;
+  // i can be set outside of for loop.
+  for (; i < arr.length; i++) {
+    accumulator = callback(arr[i], accumulator);
+   }
+  
+  return accumulator;
 }
