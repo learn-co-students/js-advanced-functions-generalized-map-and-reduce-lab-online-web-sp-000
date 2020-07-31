@@ -4,6 +4,7 @@ describe('my own map-like methods', function() {
       expect(map([1, 2, 3, -9], function(a){ return -1 * a } )).to.eql([-1, -2, -3, 9])
    })
 
+
   describe("map returns an array with the original values", function() {
     it("transforms correctly", function(){
       dune = ["paul", "gurney", "vladimir", "jessica", "chani"]
