@@ -10,12 +10,19 @@ function map(arr, func) {
 }
 
 function reduce(arr, func, value) {
-    if (typeof value == 'undefined') {
-        if (arr.some(isNaN)) value = true
-        else value = 0
-    }
-    for (let a of arr) {
-        value = func(value,a,arr)
-    }
-    return value
+   let initVal;
+   if (value) {
+       initVal = value;
+   } else {
+       initVal = arr[0]
+   }
+
+   let i = value ? 0 : 1;
+
+   for (; i < arr.length; i++) {
+       initVal = func(arr[i], initVal)
+   }
+
+   return initVal;
+
 }
