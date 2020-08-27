@@ -8,20 +8,12 @@ function map(src, fn) {
 
 function reduce(src, fn, startingPoint = 0) {
   let sum = startingPoint;
-  let numbers = true;
   for (let i = 0; i < src.length; i++) {
-    if (typeof src[i] !== Number) {
-      numbers = false;
-    }
-  }
-  if (numbers === true) {
-    for (let i = 0; i < src.length; i++) {
-      sum = sum + src[i];
-    }
-  } else {
-    for (let i = 0; i < src.length; i++) {
-      sum = fn(src[i]);
-    }
+    if (startingPoint !== 0) {
+       sum = sum + fn(src[i]);
+     } else {
+        sum = fn(src[i]);
+     }
   }
   return sum;
 }
