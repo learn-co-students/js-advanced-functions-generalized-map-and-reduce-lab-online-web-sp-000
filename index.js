@@ -10,15 +10,15 @@ function map(array, block) {
 
 function reduce(sourceArray, block, startingPoint) {
     let memo;
-    let x;
+    let i;
     if (startingPoint) {
         memo = startingPoint;
-        x = 0;
+        i = 0;
     } else {
         memo = sourceArray[0];
-        x = 1;
+        i = 1;
     } 
-    for (let i = x; i < sourceArray.length; i++) {
+    for (; i < sourceArray.length; i++) {
         memo = block(sourceArray[i], memo);
     }
     return memo;
