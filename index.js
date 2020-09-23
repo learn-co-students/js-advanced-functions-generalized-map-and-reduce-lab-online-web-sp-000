@@ -8,21 +8,29 @@
 //map and reduce has a lot of repeated code 
 //call the function by typing its pointer name and adding ()
 
+  //reduce returns a value 
 
 //map returns a new array 
-function map(array, func){ //take an array and a function
-    let r = []
-    for (let i = 0; i < array.length; i++){
-      r[i] = func(array[i])
-    }
-    return r
+
+function map(sourceArray, callBack) {
+  let newArray = [];
+
+  for (let i=0; i < sourceArray.length; i++) {
+     let element = sourceArray[i];
+
+     newArray.push(callBack(element));
   }
-  
-  //reduce returns a value 
-  function reduce(array, func, startingPoint){
-    let r = startingPoint || 0
-    for(let i = 0; i < array.length; i++){
-      r = func(array[i], r)
-    }
-    return r
+
+  return newArray;
+}
+
+function reduce(sourceArray, callBack, startingPoint) {
+  let newArray = (!!startingPoint) ? startingPoint : sourceArray[0];
+  let i = (!!startingPoint) ? 0 : 1;
+
+  for (; i < sourceArray.length; i++) {
+     newArray = callBack(sourceArray[i], newArray)
   }
+
+  return newArray;
+}
