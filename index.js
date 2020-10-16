@@ -10,23 +10,20 @@ function map(sourceArray, callbackFunction){
 }
 
 
-
 function reduce(sourceArray, callbackFunction, startingPoint=0) {
 
-    if (startingPoint && typeof startingPoint !== "boolean"){
-        var reducedValue = startingPoint
-    } else if (startingPoint === 0) {
-        var reducedValue = 0;
+    if (startingPoint){
+        var i = 0;
+        var reducedValue = startingPoint; 
     } else {
-        var reducedValue = true;
+        var i = 1;
+        var reducedValue = sourceArray[0];
     }
 
-    for (let i = 0; i < sourceArray.length; i++) {
+    for (i; i < sourceArray.length; i++) {
         reducedValue = callbackFunction(reducedValue, sourceArray[i]);
     }
 
     return reducedValue;
 
 } 
-
-
