@@ -8,8 +8,7 @@ function map(sourceArray, block){
 }
 
 function reduce(sourceArray, block, startingPoint){
-  let myTotal = sourceArray[0];
-  
+  let myTotal = sourceArray[0];  
   for (let i=1; i < sourceArray.length; i++){
     myTotal = block(myTotal, sourceArray[i]);
   }
@@ -20,6 +19,3 @@ function reduce(sourceArray, block, startingPoint){
     return myTotal
   }
 }
-const fn = function(a, memo){ return !!a && !!memo};
-//sourceArray = [1, 2, true, "razmatazz", false];
-sourceArray = [1, 2, true, "razmatazz"];
