@@ -8,14 +8,17 @@ function map(sourceArray, block){
 }
 
 function reduce(sourceArray, block, startingPoint){
-  let myTotal = 0;
-  if (startingPoint){
-    myTotal = startingPoint;
-  }
-  for (let i=0; i < sourceArray.length; i++){
+  let myTotal = sourceArray[0];
+  
+  for (let i=1; i < sourceArray.length; i++){
     myTotal = block(myTotal, sourceArray[i]);
   }
-  return myTotal;
+  if (startingPoint){
+    return myTotal + startingPoint;
+  }
+  else {
+    return myTotal
+  }
 }
 const fn = function(a, memo){ return !!a && !!memo};
 //sourceArray = [1, 2, true, "razmatazz", false];
