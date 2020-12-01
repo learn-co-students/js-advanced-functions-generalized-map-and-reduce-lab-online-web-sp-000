@@ -6,6 +6,7 @@ function map(array, func) {
   return result;
 }
 
+
 function reduce(source, func, start){
   let result = !!start ? start : source[0];
   let array = !!start ? source : source.slice(1);
