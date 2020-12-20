@@ -11,15 +11,18 @@ const map = (sourceArray, callback) => {
 const reduce = (sourceArray, callback, startingVal = 0) => {
     let result
     let total = 0
-    sourceArray.forEach(value => {
-        total += value
+    if (sourceArray.every(Number)) {
+      sourceArray.forEach(value => {
+        total += value 
+      });
+    } else {
+      sourceArray.forEach(value => {
+        total = true
         if (!value) {
-            total = false
-        } else {
-            total = true
+          total = false
         }
-    })
-    result = callback(total, startingVal)
-
+      });
+    }
+    result = callback(total, startingVal)  
     return result
 }
