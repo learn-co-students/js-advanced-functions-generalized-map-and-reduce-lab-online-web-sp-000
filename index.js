@@ -6,10 +6,21 @@ function map(array, fn) {
     return newArray
 }
 
-function reduce(array, fn, starting = 0) {
-    let value = starting
-    for (let i = 0; i < array.length; i++) {
-        value = fn(array[i], value)
+function reduce(array, fn, starting = null) {
+    if (starting){
+        let value = starting
+        for (let i = 0; i < array.length; i++) {
+            value = fn(array[i], value)
+        }
+        return value
     }
-    return value
+    else {
+        let value = array[0]
+        for (let i = 1; i < array.length; i++) {
+            value = fn(array[i], value)
+        }
+        return value
+    }
+
+    
 }
