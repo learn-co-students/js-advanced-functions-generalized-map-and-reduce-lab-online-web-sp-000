@@ -9,18 +9,18 @@ function map(object, callback){
     
 }
 
-function reduce(obj, cb, accumulator) {
-    const keys = Object.keys(obj)
+function reduce(object, callback, accumulator) {
+    const keys = Object.keys(object)
     let i = 1
   
     if (accumulator) {
       i = 0
     } else {
-      accumulator = obj[keys[0]]
+      accumulator = object[keys[0]]
     }
   
     for (i; i < keys.length; i++) {
-      accumulator = cb(accumulator, obj[keys[i]])
+      accumulator = callback(accumulator, object[keys[i]])
     }
     return accumulator
   }
