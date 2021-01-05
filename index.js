@@ -8,10 +8,24 @@ function map(set, arg) {
 }
 
 
-function reduce(set, arg, result = 0) {
-    // let result = 0;
-    for (let n of set) {
-        result = arg(n, result);
+// function reduce(set, arg, start) {
+//     let result = set[0];
+//     if (start) {
+//         result = start;
+//     }
+//     for (let n of set) {
+//         result = arg(n, result);
+//     }
+//     return result;
+// }
+
+function reduce(src, cb, starting){
+    let r = (!!starting) ? starting : src[0]
+    let i = (!!starting) ? 0 : 1
+  
+    for (; i < src.length; i++) {
+      r = cb(src[i], r)
     }
-    return result;
-}
+  
+    return r;
+  }
