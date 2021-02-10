@@ -7,9 +7,9 @@ function map (arr, callback){
   return newArr;
 }
 
-function reduce(arr, callback, start){
-  let r = (!!start) ? start : arr[0]
-  let i = (!!start) ? 0 : 1
+function reduce(arr, callback, acc){
+  let r = (!!acc) ? acc : arr[0]
+  let i = (!!acc) ? 0 : 1
 
   for (; i < arr.length; i++) {
     r = callback(arr[i], r)
