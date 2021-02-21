@@ -9,7 +9,7 @@ function map(arr, fn) {
 function reduce(arr, fn, startingPoint=0) {
   let sum = startingPoint;
   for (let i = 0; i < arr.length; i++) {
-    sum = fn(sum, arr[i]);
+    sum += fn(sum, arr[i]);
   }
   return sum;
 }
